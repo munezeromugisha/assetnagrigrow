@@ -12,4 +12,7 @@ class Field extends Model
     {
         return $this->belongsTo(\App\Models\Farm::class);
     }
+    public function inputOutputs() {
+        return $this->hasMany(InputOutput::class);
+    }
 }

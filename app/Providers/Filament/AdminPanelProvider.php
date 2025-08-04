@@ -17,6 +17,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\DashboardResource\Widgets\FarmStats;
+use App\Filament\Resources\DashboardResource\Widgets\InputOutputTrendChart;
+use App\Filament\Resources\DashboardResource\Widgets\TopFarmsByOutputChart;
+use App\Filament\Resources\DashboardResource\Widgets\MonthlyInputOutputChart;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -39,6 +43,10 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                FarmStats::class,
+                InputOutputTrendChart::class,
+                TopFarmsByOutputChart::class, // Top 5 Farms by Output chart widget
+                MonthlyInputOutputChart::class, // Monthly Input/Output bar chart widget
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -16,4 +16,7 @@ class Farm extends Model
     {
         return $this->hasMany(\App\Models\Field::class);
     }
+    public function inputOutputs() {
+        return $this->hasMany(InputOutput::class);
+    }
 }
